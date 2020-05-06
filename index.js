@@ -361,7 +361,7 @@ app.post('/parks_update',function(req,res){
             mobile:mobile,
             booking_ref:booking_ref,
           }).then(success => {             
-              notifySave(webhook_event.sender.id);    
+              notifySave(req.body.sender);    
           }).catch(error => {
             console.log(error);
       });        
@@ -690,7 +690,7 @@ app.post('/webhook', (req, res) => {
 
 
 
-        if (userInput == 'Hi' || userInput == 'Hi'){
+        if (userInput == 'Hi'){
           let welcomeMessage = {
             "recipient":{
               "id":webhook_event.sender.id
